@@ -4,14 +4,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
-@WebServlet (urlPatterns={"/"},loadOnStartup = 1)
+@WebServlet ("/")
 public class MyServlet extends HttpServlet {
-
+    int count =0;
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         resp.setContentType("text/html");
+        if (count!=0){
+            resp.getWriter().write("<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "<body>\n" +
+                    "\n" +
+                    "<script>\n" +
+                    "  alert(\"You username or password is incorrect. Try again!\");\n" +
+                    "</script>\n" +
+                    "\n" +
+                    "</body>\n" +
+                    "</html>\n");
+        }
+        count++;
         resp.getWriter().write("<html>\n" +
                 "<head>\n" +
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
@@ -137,13 +151,13 @@ public class MyServlet extends HttpServlet {
                 "\n" +
                 "\n" +
                 "<h1>Welcome to Phab Pharmacy's online shop Phindr</h1>\n" +
-                "<img src=\"logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">"+
-                        "<p>Please log in with your <b>login details</b> below </p>"+
+                "<img src=\"C:\\Users\\Sarah\\Desktop\\University\\Year3\\Prg3\\website\\logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">"+
+                "<p>Please log in with your <b>login details</b> below </p>"+
                 "<button onclick=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\">Login</button>\n" +
                 "\n" +
                 "<div id=\"id01\" class=\"modal\">\n" +
                 "  \n" +
-                "  <form class=\"modal-content animate\" action=\"action_page.php\" method=\"post\">\n" +
+                "  <form class=\"modal-content animate\" action=\"login\" method=\"post\">\n" +
                 "    <div class=\"imgcontainer\">\n" +
                 "      <span onclick=\"document.getElementById('id01').style.display='none'\" class=\"close\" title=\"Close Modal\">&times;</span>\n" +
                 "\n" +
@@ -182,6 +196,19 @@ public class MyServlet extends HttpServlet {
                 "</body>\n" +
                 "</html>\n");
     }
+
+    /*
+        @Override
+        //overriding the doPost method -> processes the HTTP POST method
+        protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+            IOException {
+        String reqBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+
+            resp.setContentType("application/json");
+            resp.getWriter().write(reqBody);
+    }
+     */
+
 }
 
 
