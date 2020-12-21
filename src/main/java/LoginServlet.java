@@ -22,9 +22,10 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
 
-        if ((name.equals("Sarah")) && (password.equals("love"))) {
-                out.print(name);
-                out.print(password);
+        if ((name.equals("Sarah")) && (password.equals("love")))
+        {
+                resp.setContentType("text/html");
+                resp.getWriter().write("Hello World");
         }
         else
         {
