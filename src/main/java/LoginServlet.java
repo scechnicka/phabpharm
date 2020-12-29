@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +15,31 @@ import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
 
+        public String encryption (String psw)
+        {
+
+                String generatedPassword = null;
+                try {
+                        // Create MessageDigest instance for MD5
+                        MessageDigest md = MessageDigest.getInstance("MD5");
+                        //Add password bytes to digest
+                        md.update(psw.getBytes());
+                        //Get the hash's bytes
+                        byte[] bytes = md.digest();
+                        //This bytes[] has bytes in decimal format;
+                        //Convert it to hexadecimal format
+                        StringBuilder sb = new StringBuilder();
+                        for(int i=0; i< bytes.length ;i++)
+                        {
+                                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                        }
+                        //Get complete hashed password in hex format
+                        generatedPassword = sb.toString();
+                } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                }
+                return (generatedPassword);
+        }
 
 @Override
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
@@ -21,8 +48,9 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         PrintWriter out=resp.getWriter();
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
+        password=encryption(password);
 
-        if ((name.equals("Sarah")) && (password.equals("love")))
+        if ((name.equals("Sarah")) && (password.equals("5f4dcc3b5aa765d61d8327deb882cf99")))
         {
                 resp.setContentType("text/html");
                 resp.getWriter().write("<!DOCTYPE html>\n" +
