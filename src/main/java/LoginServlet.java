@@ -232,7 +232,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         else
         {
-                resp.sendRedirect("/website/welcome");
+                resp.sendRedirect("/website/");
         }
 
     }

@@ -4,9 +4,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.stream.Collectors;
 
-@WebServlet ("/welcome")
+
+@WebServlet ("/")
 public class MyServlet extends HttpServlet {
     int count =0;
     @Override
@@ -196,18 +196,6 @@ public class MyServlet extends HttpServlet {
                 "</body>\n" +
                 "</html>\n");
     }
-
-    /*
-        @Override
-        //overriding the doPost method -> processes the HTTP POST method
-        protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-        String reqBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-
-            resp.setContentType("application/json");
-            resp.getWriter().write(reqBody);
-    }
-     */
 
 }
 
