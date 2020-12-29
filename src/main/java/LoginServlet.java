@@ -260,7 +260,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         else
         {
-                resp.sendRedirect("/website/");
+                resp.sendRedirect("/website/welcome");
         }
 
     }
