@@ -1,9 +1,15 @@
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 
 
 @WebServlet ("/welcome")
@@ -13,7 +19,7 @@ public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         resp.setContentType("text/html");
-        if (count!=0){
+        if (count != 0) {
             resp.getWriter().write("<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<body>\n" +
@@ -151,8 +157,8 @@ public class MyServlet extends HttpServlet {
                 "\n" +
                 "\n" +
                 "<h1>Welcome to Phab Pharmacy's online shop Phindr</h1>\n" +
-                "<img src=\"C:\\Users\\Sarah\\Desktop\\University\\Year3\\Prg3\\website\\logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">"+
-                "<p>Please log in with your <b>login details</b> below </p>"+
+                "<img src=\"C:\\Users\\Sarah\\Desktop\\University\\Year3\\Prg3\\website\\logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">" +
+                "<p>Please log in with your <b>login details</b> below </p>" +
                 "<button onclick=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\">Login</button>\n" +
                 "\n" +
                 "<div id=\"id01\" class=\"modal\">\n" +
@@ -196,7 +202,6 @@ public class MyServlet extends HttpServlet {
                 "</body>\n" +
                 "</html>\n");
     }
-
-}
+    }
 
 
