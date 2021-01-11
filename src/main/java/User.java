@@ -8,7 +8,7 @@ public class User {
         try {
             Connection con = DBConnection.initialiseDB();
             Statement s = con.createStatement();
-            ResultSet rset = s.executeQuery("SELECT * from clients where name="+username+" AND password="+password+");";
+            ResultSet rset = s.executeQuery("SELECT * from clients where name="+username+" AND password="+password+");");
             // a ResultSet object is a table of data representing a database
             // '.next()' moves cursor to the next row of the DB - loop iterates through result set
 
