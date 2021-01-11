@@ -28,7 +28,6 @@ public class GetDB {
     ArrayList<String> ID = new ArrayList<>();
     ArrayList<String> CurrentStock = new ArrayList<>();
 
-
     public GetDB() {
         try {
             URL myURL = new URL("https://projectservlet.herokuapp.com/DBaccess");
@@ -95,7 +94,7 @@ public class GetDB {
 
     public ArrayList<String> getSPrice() { return SPrice; }
 
-    public ArrayList<String> getPPrice(){ return PPrice; }
+    public ArrayList<String> getPPrice() { return PPrice; }
 
     public ArrayList<String> getFullStock() { return FullStock; }
 
@@ -103,10 +102,10 @@ public class GetDB {
 
     public ArrayList<String> getDescription() { return Description; }
 
-    public ArrayList<String> getCategory(){ return Category; }
+    public ArrayList<String> getCategory() { return Category; }
 
     public ArrayList<String> getID() { return ID; }
 
-    public ArrayList<String> getCurrentStock(){ return CurrentStock; }
+    public ArrayList<String> getCurrentStock() { return CurrentStock; }
 
 }

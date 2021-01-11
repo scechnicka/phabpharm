@@ -16,7 +16,6 @@ public class LoginServlet extends HttpServlet {
 
         public String encryption (String psw)
         {
-
                 String generatedPassword = null;
                 try {
                         // Create MessageDigest instance for MD5
@@ -43,12 +42,37 @@ public class LoginServlet extends HttpServlet {
 @Override
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
+        /*
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter();
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
         password=encryption(password);
+        */
 
+        boolean valid = false;
+
+        try {
+                // Collect the parameters that correspond to the name and password of the user/client
+                String username = req.getParameter("uname");
+                String password = req.getParameter("passwrd");
+                password = encryption(password);
+
+                // Checking that the password is correct
+                valid = User.Check(password, username);
+
+                // If correct then redirect to the JSP page where the client will be able to shop
+                // Else redirect to an error message
+                if (valid)
+                        resp.sendRedirect("validlogin.jsp");
+                else
+                        resp.sendRedirect("/welcome");
+        }
+        catch (Exception e) {
+                System.out.println("Something went wrong");
+        }
+
+        /*
         if ((name.equals("Sarah")) && (password.equals("5f4dcc3b5aa765d61d8327deb882cf99")))
         {
                 resp.setContentType("text/html");
@@ -261,6 +285,6 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         {
                 resp.sendRedirect("/welcome");
         }
-
+        */
     }
 }
