@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
-
 public class LoginServlet extends HttpServlet {
 
         public String encryption (String psw)
@@ -260,7 +259,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         else
         {
-                resp.sendRedirect("/website/welcome");
+                resp.sendRedirect("/welcome");
         }
 
     }

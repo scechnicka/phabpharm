@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class GetDB {
     //ArrayList of ArrayList that stores all info from the DB
-    ArrayList<ArrayList> AllProducts = new ArrayList<ArrayList>();
+    public ArrayList<ArrayList> AllProducts = new ArrayList<ArrayList>();
     String jsonS = "";
 
     // Arrays into which the info will be moved to be used in the other classes:
@@ -31,7 +31,7 @@ public class GetDB {
 
     public GetDB() {
         try {
-            URL myURL = new URL("https://phabonlineshop.herokuapp.com/DBaccess");
+            URL myURL = new URL("https://projectservlet.herokuapp.com/DBaccess");
             HttpURLConnection conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -70,12 +70,12 @@ public class GetDB {
             Description.add(product.get(6));
             Category.add(product.get(7));
             ID.add(product.get(8));
-            CurrentStock.add(product.get(8));
+            CurrentStock.add(product.get(9));
 
             //System.out.println(product);
         }
 
-       /* System.out.println(Brand);
+/*        System.out.println(Brand);
         System.out.println(Amount);
         System.out.println(SPrice);
         System.out.println(PPrice);
@@ -84,8 +84,8 @@ public class GetDB {
         System.out.println(Description);
         System.out.println(Category);
         System.out.println(ID);
-        System.out.println(CurrentStock); */
-
+        System.out.println(CurrentStock);
+*/
 
     }
 
