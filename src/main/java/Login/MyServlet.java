@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet (name = "MyServlet", urlPatterns = {"/MyServlet"})
+@WebServlet ("/website")
 public class MyServlet extends HttpServlet {
     //int count = 0;
 
