@@ -292,7 +292,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                     "\n" +
                     "</body>\n" +
                     "</html>\n");
-                resp.sendRedirect("/welcome");
+                //resp.sendRedirect("/welcome");
         }
     }
 }
