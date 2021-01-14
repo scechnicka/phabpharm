@@ -16,8 +16,7 @@ public class MyServlet extends HttpServlet {
             IOException {
         resp.setContentType("text/html");
 
-        RequestDispatcher view = req.getRequestDispatcher("login.html");
-        view.forward(req, resp);
+        req.getRequestDispatcher("login.html").include(req, resp);
     }
 }
 
