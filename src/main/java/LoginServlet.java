@@ -75,7 +75,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
 
 */
-        if (cdb.lastName.contains(name)) && (cdb.password.contains(password)))
+        if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 resp.setContentType("text/html");
                 resp.getWriter().write("<!DOCTYPE html>\n" +
