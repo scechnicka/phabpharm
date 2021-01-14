@@ -42,14 +42,16 @@ public class LoginServlet extends HttpServlet {
 @Override
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
+          /*
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter();
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
         password=encryption(password);
 
+           */
 
-        /*boolean valid = false;
+        boolean valid = false;
 
         try {
                 // Collect the parameters that correspond to the name and password of the user/client
@@ -69,9 +71,9 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         catch (Exception e) {
                 System.out.println("Something went wrong");
-        }*/
+        }
 
-
+/*
         if ((name.equals("Sarah")) && (password.equals("5f4dcc3b5aa765d61d8327deb882cf99")))
         {
                 resp.setContentType("text/html");
@@ -293,6 +295,6 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                     "</body>\n" +
                     "</html>\n");
                 resp.sendRedirect("/welcome");
-        }
+        }*/
     }
 }

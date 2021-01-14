@@ -28,7 +28,7 @@ public class MyServlet extends HttpServlet {
         //count++;
 
         //resp.getWriter().write();
-        RequestDispatcher view = req.getRequestDispatcher("login.html");
+        RequestDispatcher view = req.getRequestDispatcher("/login.html");
         // don't add your web-app name to the path
 
         view.forward(req, resp);
