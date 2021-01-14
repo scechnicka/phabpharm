@@ -15,9 +15,7 @@ public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
 
-        RequestDispatcher view = req.getRequestDispatcher("login.html");
-        view.forward(req, resp);
-
+        req.getRequestDispatcher("login.jsp").include(req, resp);
     }
 }
 
