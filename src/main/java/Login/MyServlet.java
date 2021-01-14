@@ -1,3 +1,4 @@
+package Login;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -5,12 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
 
 
 @WebServlet (name = "MyServlet", urlPatterns = {"/MyServlet"})
@@ -28,7 +24,7 @@ public class MyServlet extends HttpServlet {
         //count++;
 
         //resp.getWriter().write();
-        RequestDispatcher view = req.getRequestDispatcher("login.html");
+        RequestDispatcher view = req.getRequestDispatcher("Login\\login.html");
         // don't add your web-app name to the path
 
         view.forward(req, resp);
