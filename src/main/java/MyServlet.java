@@ -14,7 +14,6 @@ public class MyServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-        resp.setContentType("text/html");
 
         req.getRequestDispatcher("login.html").include(req, resp);
     }
