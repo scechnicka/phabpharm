@@ -292,7 +292,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                     "\n" +
                     "</body>\n" +
                     "</html>\n");
-                resp.addHeader("REFRESH","1;URL=https://phabonlineshop.herokuapp.com/welcome");
+                resp.addHeader("REFRESH","1;URL=https://phabonlineshop.herokuapp.com");
         }
     }
 }
