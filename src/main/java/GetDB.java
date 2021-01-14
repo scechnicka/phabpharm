@@ -30,7 +30,7 @@ public class GetDB {
 
     public GetDB() {
         try {
-            URL myURL = new URL("https://projectservlet.herokuapp.com/DBaccess");
+            URL myURL = new URL("https://projectservlet.herokuapp.com/access?item=products");
             HttpURLConnection conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
