@@ -23,7 +23,7 @@ public class MyServlet extends HttpServlet {
         //count++;
 
         //resp.getWriter().write();
-        RequestDispatcher view = req.getRequestDispatcher("/login.html");
+        RequestDispatcher view = req.getRequestDispatcher("/http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd/login.html");
         // don't add your web-app name to the path
 
         view.forward(req, resp);
