@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 @WebServlet("/DB")
 public class DBacc extends HttpServlet {
     GetDB db= new GetDB();
+    GetDB_clients cdb= new GetDB_clients();
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         resp.setContentType("text/html");
@@ -22,5 +23,7 @@ public class DBacc extends HttpServlet {
         out.println(db.getFullStock());
         out.println(db.getLimit());
         out.println(db.getDescription());
+        out.println(cdb.getLastName());
+        out.println(cdb.getPassword());
     }
 }
