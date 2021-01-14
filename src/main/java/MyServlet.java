@@ -20,7 +20,7 @@ public class MyServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
-        resp.setContentType("text/html");
+        //resp.setContentType("text/html");
         if (count != 0) {
             resp.getWriter().write("<!DOCTYPE html>\n" +
                     "<html>\n" +
@@ -36,7 +36,7 @@ public class MyServlet extends HttpServlet {
         count++;
 
         //resp.getWriter().write();
-        RequestDispatcher view = req.getRequestDispatcher("C:\\Users\\Sarah\\Desktop\\Year3\\Prg3\\phabpharm\\src\\main\\java\\login.html");
+        RequestDispatcher view = req.getRequestDispatcher("login.html");
         // don't add your web-app name to the path
 
         view.forward(req, resp);
