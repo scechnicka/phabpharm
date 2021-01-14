@@ -141,7 +141,7 @@ public class MyServlet extends HttpServlet {
                 "\n" +
                 "\n" +
                 "<h1>Welcome to Phab Pharmacy's online shop Phindr</h1>\n" +
-                "<img src=\"logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">" +
+                "<img src=\"https://phabonlineshop.herokuapp.com/logo.jpg\" alt=\"Logo\" width=\"500\" height=\"333\">" +
                 "<p>Please log in with your <b>login details</b> below </p>" +
                 "<button onclick=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\">Login</button>\n" +
                 "\n" +
