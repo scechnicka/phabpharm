@@ -282,16 +282,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         else
         {
-                resp.getWriter().write("<!DOCTYPE html>\n" +
-                    "<html>\n" +
-                    "<body>\n" +
-                    "\n" +
-                    "<script>\n" +
-                    "  alert(\"You username or password is incorrect. Try again!\");\n" +
-                    "</script>\n" +
-                    "\n" +
-                    "</body>\n" +
-                    "</html>\n");
+                req.getRequestDispatcher("ilogin.jsp").include(req, resp);
                 resp.addHeader("REFRESH","1;URL=https://phabonlineshop.herokuapp.com");
         }
     }

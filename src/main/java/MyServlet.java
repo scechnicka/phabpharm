@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//Original Servlet connection to allow for login ..For a cleaner version of the HTML code please read login.html
 @WebServlet ("/")
 public class MyServlet extends HttpServlet {
 
