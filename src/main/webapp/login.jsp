@@ -130,7 +130,7 @@
 <body>
 
 <h1>Welcome to Phab Pharmacy's online shop Phindr</h1>
-<img src="https://ibb.co/DpVP9sp" alt="Logo" width="500" height="333">
+<img src="https://i.ibb.co/HdFLt1d/logo-1.jpg" alt="Logo" width="500" height="333">
 
 <p>Please log in with your <b>login details</b> (surname and password) below </p>
 
