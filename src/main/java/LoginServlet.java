@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+        GetDB_clients cdb= new GetDB_clients();
 
         public String encryption (String psw)
         {
@@ -42,15 +43,15 @@ public class LoginServlet extends HttpServlet {
 @Override
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
-          /*
+
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter();
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
         password=encryption(password);
 
-           */
 
+/*
         boolean valid = false;
 
         try {
@@ -73,8 +74,8 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                 System.out.println("Something went wrong");
         }
 
-/*
-        if ((name.equals("Sarah")) && (password.equals("5f4dcc3b5aa765d61d8327deb882cf99")))
+*/
+        if (cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 resp.setContentType("text/html");
                 resp.getWriter().write("<!DOCTYPE html>\n" +
