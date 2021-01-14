@@ -51,8 +51,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         password=encryption(password);
 
 
-/*
-        boolean valid = false;
+/*        boolean valid = false;
 
         try {
                 // Collect the parameters that correspond to the name and password of the user/client
@@ -72,9 +71,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         }
         catch (Exception e) {
                 System.out.println("Something went wrong");
-        }
-
-*/
+        }*/
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 resp.setContentType("text/html");
@@ -296,6 +293,6 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                     "</body>\n" +
                     "</html>\n");
                 resp.sendRedirect("/welcome");
-        }*/
+        }
     }
 }
