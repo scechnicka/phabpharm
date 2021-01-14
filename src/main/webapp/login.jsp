@@ -130,7 +130,7 @@
 <body>
 
 <h1>Welcome to Phab Pharmacy's online shop Phindr</h1>
-<img src="../resources/logo.jpg" alt="Logo" width="500" height="333">
+<img src="logo.jpg" alt="Logo" width="500" height="333">
 
 <p>Please log in with your <b>login details</b> (surname and password) below </p>
 
@@ -138,7 +138,7 @@
 
 <div id="id01" class="modal">
 
-    <form class="modal-content animate" action="login" method="post"> // I changed the action to login here
+    <form class="modal-content animate" action="login" method="post">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
