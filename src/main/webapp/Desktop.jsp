@@ -96,7 +96,7 @@
 <div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a medcin type:</option>
-        <c: forEach items = "${listCategory}" var="category">
+        <c: forEach items = "${product_list}" var="category">
             <option value="${product.id}">${product.category}</option>
         </c: forEach>
 
@@ -106,7 +106,7 @@
 <div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a medcin brand:</option>
-        <c: forEach items = "${listCategory}" var="category">
+        <c: forEach items = "${product_list}" var="category">
             <option value="${product.id}">${product.brand}</option>
         </c: forEach>
     </select>
