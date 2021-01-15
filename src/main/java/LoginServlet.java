@@ -2,6 +2,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,6 +47,45 @@ public class LoginServlet extends HttpServlet {
 @Override
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
+
+        /* NEW CODE BELOW */
+
+        String query = "SELECT * FROM products;";
+
+        // 'products_bis' will contain collection of 'Product' objects
+        ArrayList<Product> products_bis  = new ArrayList<>();
+
+        try {
+                // Connecting to the DB and returning what is identified by the URL
+                Connection con = DBConnection.initialiseDB();
+                Statement s = con.createStatement();
+                ResultSet rset = s.executeQuery(query); // a ResultSet object is a table of data representing a database
+                // '.next()' moves cursor to the next row of the DB - loop iterates through result set
+
+
+                // Iterate through the rows and get info for each product
+                while(rset.next()) {
+                        String brand = rset.getString(1);
+                        String amount = rset.getString(2);
+                        double sprice = rset.getDouble(3);
+                        double pprice = rset.getDouble(4);
+                        int fullstock = rset.getInt(5);
+                        boolean limitation = rset.getBoolean(6);
+                        String description = rset.getString(7);
+                        String category = rset.getString(8);
+                        int id = rset.getInt(9);
+                        int currentstock = rset.getInt(10);
+
+                        Product product_bis = new Product(brand, amount, sprice, pprice, fullstock, limitation, description, category, id, currentstock);
+
+                        // Add one of the products (represented by an ArrayList) to the bigger collection of all products
+                        products_bis.add(product_bis);
+                }
+
+                // here need to attach information as attribute to request - only if certain parameter
+                req.setAttribute("products_list", products_bis);
+
+        /* END OF NEW CODE */
 
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter(); // is this needed?
