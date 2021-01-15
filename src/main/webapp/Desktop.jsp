@@ -97,7 +97,7 @@
     <select>
         <option value="0">Select a medcin type:</option>
         <c: forEach items = "${listCategory}" var="category">
-            <option value="${id}">${Category}</option>
+            <option value="${product.id}">${product.description}</option>
         </c: forEach>
 
     </select>
