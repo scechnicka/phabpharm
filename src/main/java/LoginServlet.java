@@ -52,11 +52,6 @@ public class LoginServlet extends HttpServlet {
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
 
-        ArrayList<Product> products_bis  = new ArrayList<>();
-        Product product_num = new Product("brand","2",2.0,3.0,1,true,"hello", "cat",2,11);
-        products_bis.add(product_num);
-        /* NEW CODE BELOW
-
         String query = "SELECT * FROM products;";
 
         // 'products_bis' will contain collection of 'Product' objects
@@ -69,7 +64,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                 ResultSet rset = s.executeQuery(query); // a ResultSet object is a table of data representing a database
                 // '.next()' moves cursor to the next row of the DB - loop iterates through result set
 
-                // Iterate through the rows and get info for each product
+                // Iterate through the rows and get info for each product // I dont think this works
                 while (rset.next()) {
                         String brand = rset.getString(1);
                         String amount = rset.getString(2);
@@ -94,7 +89,6 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         catch (Exception e) {
                 System.out.println("Something went wrong");
         }
-         END OF NEW CODE */
 
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter(); // is this needed?
@@ -110,10 +104,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 req.setAttribute("product_list",products_bis);
-                //req.getRequestDispatcher("Desktop.jsp").include(req, resp);
-                resp.setContentType("text/html");
-                PrintWriter out4=resp.getWriter();
-                out4.println(products_bis.get(0).id);
+                req.getRequestDispatcher("Desktop.jsp").include(req, resp);
 
         }
         else
