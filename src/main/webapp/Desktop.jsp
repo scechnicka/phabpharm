@@ -11,8 +11,6 @@
 
 <html>
 <head>
-    <h1>Welcome to the Phab Pharmacy online store!</h1>
-    <p>Pick the relevant options in each dropdown menu or search for the medicine you are looking for and checkout to order your drug.</p>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             /*the container must be positioned relative:*/
@@ -80,7 +78,8 @@
 
 <body>
 
-
+<h1>Welcome to the Phab Pharmacy online store!</h1>
+<p>Pick the relevant options in each dropdown menu or search for the medicine you are looking for and checkout to order your drug.</p>
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
 
