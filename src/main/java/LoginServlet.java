@@ -103,11 +103,8 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
 
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
-                req.setAttribute("product _lists",products_bis);
-                //req.getRequestDispatcher("Desktop.jsp").include(req, resp);
-                resp.setContentType("text/html");
-                PrintWriter out4= resp.getWriter();
-                out4.println(products_bis.get(0));
+                req.setAttribute("product_list",products_bis);
+                req.getRequestDispatcher("Desktop.jsp").include(req, resp);
 
         }
         else
