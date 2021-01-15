@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,6 +87,8 @@
 
 <body>
 
+<h1>Welcome to the Phab Pharmacy online store!</h1>
+<p>Pick the relevant options in each dropdown menu or search for the medicine you are looking for and checkout to order your drug.</p>
 
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
@@ -144,7 +147,7 @@
     </select>
 </div>
 
-<button type="button" onclick="alert('You have completed your purchase successfully!')">Checkout!</button>
+<button type="button" style="width:200px; float:left; margin:10px; background-color: #4CAF50; border: none;  color: white; padding: 12px 400px; text-align: left;text-decoration: none; font-size: 24px;" onclick="alert('You have completed your purchase successfully!')">Checkout!</button>
 
 <script>
     var x, i, j, l, ll, selElmnt, a, b, c;
