@@ -2,6 +2,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/* This class would have been used for direct connection with the DB to check validity of password if we had time (instead of 'GetDB_clients.java') */
+
 public class User {
     public static boolean Check(String password, String username) {
         boolean test=false;
