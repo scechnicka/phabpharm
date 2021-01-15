@@ -62,9 +62,8 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                 ResultSet rset = s.executeQuery(query); // a ResultSet object is a table of data representing a database
                 // '.next()' moves cursor to the next row of the DB - loop iterates through result set
 
-
                 // Iterate through the rows and get info for each product
-                while(rset.next()) {
+                while (rset.next()) {
                         String brand = rset.getString(1);
                         String amount = rset.getString(2);
                         double sprice = rset.getDouble(3);
@@ -84,7 +83,10 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
 
                 // here need to attach information as attribute to request - only if certain parameter
                 req.setAttribute("products_list", products_bis);
-
+        }
+        catch (Exception e) {
+                System.out.println("Something went wrong");
+        }
         /* END OF NEW CODE */
 
         resp.setContentType("text/html");
