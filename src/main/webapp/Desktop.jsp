@@ -10,200 +10,176 @@
 <head>
     <h1>Welcome to the Phab Pharmacy online store!</h1>
     <p>Pick the relevant options in each dropdown menu or search for the medicine you are looking for and checkout to order your drug.</p>
-
-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {box-sizing: border-box;}
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif
+        /*the container must be positioned relative:*/
+        .custom-select {
+            position: relative;
+            font-family: Arial;
         }
 
-        .topnav {
-            overflow: hidden;
-            background-color: #e9e9e9;
-        }
-        .topnav a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
         }
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
+        .select-selected {
+            background-color: DarkGreen;
         }
 
-        .topnav a.active {
-            background-color: #2196F3;
-            color: white;
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
         }
 
-        .topnav .search-container {
-            float: right;
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
         }
 
-        .topnav input[type=text] {
-            padding: 6px;
-            margin-top: 8px;
-            font-size: 17px;
-            border: none;
-        }
-
-        .topnav .search-container button {
-            float: right;
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background: #ddd;
-            font-size: 17px;
-            border: none;
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+            color: #ffffff;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
             cursor: pointer;
-        }
-        .topnav .search-container button:hover {
-            background: #ccc;
+            user-select: none;
         }
 
-        @media screen and (max-width: 600px) {
-            .topnav .search-container {
-                float: none;
-            }
-            .topnav a, .topnav input[type=text], .topnav .search-container button {
-                float: none;
-                display: block;
-                text-align: left;
-                width: 100%;
-                margin: 0;
-                padding: 14px;
-            }
-            .topnav input[type=text] {
-                border: 1px solid #ccc;
-            }
+        /*style items (options):*/
+        .select-items {
+            position: absolute;
+            background-color: ForestGreen;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
         }
 
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
+
+        .select-items div:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-</style>
 
-</head>
-<body>
-
-<div class=\"topnav\">
-           <a class=\"active\" href=\"#home\">Home</a>
-                                                    <div class=\"search-container\">
-                                                               <form action=\"/action_page.php\">
-                                                                               <input type=\"text\" placeholder=\"Search..\" name=\"search\">
-                                                                                                                                  <button type=\"submit\"><i class=\"fa fa-search\"></i></button>
-                                                                                                                                                                                          </form>
-                                                                                                                                                                                            </div>
-                                                                                                                                                                                              </div>
-
-                                                                                                                                                                                                <br>
-                                                                                                                                                                                                <br>
-                                                                                                                                                                                                <br>
-
-                                                                                                                                                                                                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-                                                                                                                                                                                                                                                                     <style>
-                                                                                                                                                                                                                                                                     .dropbtn {
-                                                                                                                                                                                                                                                                         background-color: #4CAF50;
-                                                                                                                                                                                                                                                                         color: white;
-                                                                                                                                                                                                                                                                         padding: 16px;
-                                                                                                                                                                                                                                                                         font-size: 16px;
-                                                                                                                                                                                                                                                                         border: none;
-                                                                                                                                                                                                                                                                     }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-</style>
-</head>
 <body>
 
 
-<div class=\"dropdown\">
-    <button class=\"dropbtn\">Select a medicine type</button>
-    <div class=\"dropdown-content\">
-        <a href=\"#\">Link 1</a>
-        <a href=\"#\">Link 2</a>
-        <a href=\"#\">Link 3</a>
-    </div>
+
+<!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
+<div class="custom-select" style="width:200px;">
+    <select>
+        <option value="0">Select a medcin type:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+        <option value="9">Mini</option>
+        <option value="10">Nissan</option>
+        <option value="11">Toyota</option>
+        <option value="12">Volvo</option>
+    </select>
 </div>
 
-<div class=\"dropdown\">
-    <button class=\"dropbtn\">Select a medicine brand</button>
-    <div class=\"dropdown-content\">
-        <a href=\"#\">Link 1</a>
-        <a href=\"#\">Link 2</a>
-        <a href=\"#\">Link 3</a>
-    </div>
-</div>
-
-<div class=\"dropdown\">
-    <button class=\"dropbtn\">Select a quantity</button>
-    <div class=\"dropdown-content\">
-        <a href=\"#\">Link 1</a>
-        <a href=\"#\">Link 2</a>
-        <a href=\"#\">Link 3</a>
-    </div>
-</div>
-
-<br>
-<br>
-<br>
-
-<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-<style>
-    .block {
-        display: block;
-        width: 100%;
-        border: none;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 28px;
-        font-size: 16px;
-        cursor: pointer;
-        text-align: center;
+<script>
+    var x, i, j, l, ll, selElmnt, a, b, c;
+    /*look for any elements with the class "custom-select":*/
+    x = document.getElementsByClassName("custom-select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                    if (s.options[i].innerHTML == this.innerHTML) {
+                        s.selectedIndex = i;
+                        h.innerHTML = this.innerHTML;
+                        y = this.parentNode.getElementsByClassName("same-as-selected");
+                        yl = y.length;
+                        for (k = 0; k < yl; k++) {
+                            y[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        break;
+                    }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function(e) {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        });
     }
-
-    .block:hover {
-        background-color: #ddd;
-        color: black;
+    function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+        except the current select box:*/
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+                arrNo.push(i)
+            } else {
+                y[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+                x[i].classList.add("select-hide");
+            }
+        }
     }
-</style>
-</head>
-<body>
+    /*if the user clicks anywhere outside the select box,
+    then close all select boxes:*/
+    document.addEventListener("click", closeAllSelect);
+</script>
 
-<button class=\"block\">Checkout</button>
 
 </body>
 </html>
+
