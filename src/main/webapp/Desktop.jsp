@@ -6,79 +6,87 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%GetDB db= new GetDB(); %>
-
 <html>
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            /*the container must be positioned relative:*/
-            .custom-select {
-                position: relative;
-                font-family: Arial;
-            }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /*the container must be positioned relative:*/
+        .custom-select {
+            position: relative;
+            font-family: Arial;
+        }
 
-            .custom-select select {
-                display: none; /*hide original SELECT element:*/
-            }
+        .custom-select select {
+            display: none; /*hide original SELECT element:*/
+        }
 
-            .select-selected {
-                background-color: DarkGreen;
-            }
+        .select-selected {
+            background-color: DarkGreen;
+        }
 
-            /*style the arrow inside the select element:*/
-            .select-selected:after {
-                position: absolute;
-                content: "";
-                top: 14px;
-                right: 10px;
-                width: 0;
-                height: 0;
-                border: 6px solid transparent;
-                border-color: #fff transparent transparent transparent;
-            }
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+            position: absolute;
+            content: "";
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
 
-            /*point the arrow upwards when the select box is open (active):*/
-            .select-selected.select-arrow-active:after {
-                border-color: transparent transparent #fff transparent;
-                top: 7px;
-            }
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+            border-color: transparent transparent #fff transparent;
+            top: 7px;
+        }
 
-            /*style the items (options), including the selected item:*/
-            .select-items div,.select-selected {
-                color: #ffffff;
-                padding: 8px 16px;
-                border: 1px solid transparent;
-                border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-                cursor: pointer;
-                user-select: none;
-            }
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+            color: #ffffff;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+            cursor: pointer;
+            user-select: none;
+        }
 
-            /*style items (options):*/
-            .select-items {
-                position: absolute;
-                background-color: ForestGreen;
-                top: 100%;
-                left: 0;
-                right: 0;
-                z-index: 99;
-            }
+        /*style items (options):*/
+        .select-items {
+            position: absolute;
+            background-color: ForestGreen;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+        }
 
-            /*hide the items when the select box is closed:*/
-            .select-hide {
-                display: none;
-            }
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+            display: none;
+        }
 
-            .select-items div:hover, .same-as-selected {
-                background-color: rgba(0, 0, 0, 0.1);
-            }
-        </style>
-    </head>
+        .select-items div:hover, .same-as-selected {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 80px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;;
+        }
+    </style>
+</head>
 
 <body>
 
-<h1>Welcome to the Phab Pharmacy online store!</h1>
-<p>Pick the relevant options in each dropdown menu or search for the medicine you are looking for and checkout to order your drug.</p>
+
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
 
@@ -136,6 +144,7 @@
     </select>
 </div>
 
+<button type="button" onclick="alert('You have completed your purchase successfully!')">Checkout!</button>
 
 <script>
     var x, i, j, l, ll, selElmnt, a, b, c;
@@ -221,4 +230,3 @@
 
 </body>
 </html>
-
