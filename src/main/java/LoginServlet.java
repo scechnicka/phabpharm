@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
         GetDB_clients cdb= new GetDB_clients();
+        GetDB db=new GetDB();
 
         public String encryption (String psw)
         {
@@ -102,7 +103,12 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
 
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
+                req.setAttribute("category",db.Category);
+                req.setAttribute("brand",db.Brand);
+                req.setAttribute("quantity",db.Amount);
+                req.setAttribute("id",db.ID);
                 req.getRequestDispatcher("Desktop.jsp").include(req, resp);
+
         }
         else
         {
