@@ -97,7 +97,7 @@
     <select>
         <option value="0">Select a medcin type:</option>
         <c: forEach items = "${listCategory}" var="category">
-            <option value="${product.id}">${product.description}</option>
+            <option value="${product.id}">${product.category}</option>
         </c: forEach>
 
     </select>
@@ -106,36 +106,30 @@
 <div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a medcin brand:</option>
-        <option value="1">Audi</option>
-        <option value="2">BMW</option>
-        <option value="3">Citroen</option>
-        <option value="4">Ford</option>
-        <option value="5">Honda</option>
-        <option value="6">Jaguar</option>
-        <option value="7">Land Rover</option>
-        <option value="8">Mercedes</option>
-        <option value="9">Mini</option>
-        <option value="10">Nissan</option>
-        <option value="11">Toyota</option>
-        <option value="12">Volvo</option>
+        <c: forEach items = "${listCategory}" var="category">
+            <option value="${product.id}">${product.brand}</option>
+        </c: forEach>
     </select>
 </div>
 
 <div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a quantity:</option>
-        <option value="1">Audi</option>
-        <option value="2">BMW</option>
-        <option value="3">Citroen</option>
-        <option value="4">Ford</option>
-        <option value="5">Honda</option>
-        <option value="6">Jaguar</option>
-        <option value="7">Land Rover</option>
-        <option value="8">Mercedes</option>
-        <option value="9">Mini</option>
-        <option value="10">Nissan</option>
-        <option value="11">Toyota</option>
-        <option value="12">Volvo</option>
+        if (limitation{
+        <option value="1">1</option>
+        }
+        else{
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        }
     </select>
 </div>
 
