@@ -93,7 +93,7 @@
 
 <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
 
-<div class="custom-select" style="width:200px; float:left; margin:10px">
+<div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a medcin type:</option>
         <option value="1">Audi</option>
@@ -111,7 +111,7 @@
     </select>
 </div>
 
-<div class="custom-select" style="width:200px; float:left; margin:10px">
+<div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a medcin brand:</option>
         <option value="1">Audi</option>
@@ -129,7 +129,7 @@
     </select>
 </div>
 
-<div class="custom-select" style="width:200px; float:left; margin:10px">
+<div class="custom-select" style="width:240px; float:left; margin:10px">
     <select>
         <option value="0">Select a quantity:</option>
         <option value="1">Audi</option>
