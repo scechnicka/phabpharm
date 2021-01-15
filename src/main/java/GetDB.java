@@ -68,9 +68,8 @@ public class GetDB {
             Limit.add(product.get(5));
             Description.add(product.get(6));
             Category.add(product.get(7));
-            ID.add(product.get(8));
-            CurrentStock.add(product.get(9));
-
+            CurrentStock.add(product.get(8));
+            ID.add(product.get(9));
             //System.out.println(product);
         }
 
@@ -104,8 +103,7 @@ public class GetDB {
 
     public ArrayList<String> getCategory() { return Category; }
 
-    public ArrayList<String> getID() { return ID; }
-
     public ArrayList<String> getCurrentStock() { return CurrentStock; }
 
+    public ArrayList<String> getID() { return ID; }
 }

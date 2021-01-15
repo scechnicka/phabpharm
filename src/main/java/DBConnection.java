@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /* This class allows to connect to the DB associated to our app on Heroku - static method 'initialiseDB()' returns a Connection object */
+/* This class would have been used if we managed to connect to the DB directly */
 
 public class DBConnection {
     public static Connection initialiseDB() throws URISyntaxException, SQLException, ClassNotFoundException {
