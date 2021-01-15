@@ -1,3 +1,5 @@
+/* This class allows for Product objects to store information from the DB and they can be used for the drop-down menus */
+
 public class Product {
     // ordered the same as in DB for now
     private String brand;

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/* This Servlet handles the login process and redirects to either 'Desktop.jsp' or 'ilogin.jsp' depending on if the login is successful */
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
         GetDB_clients cdb= new GetDB_clients();
@@ -52,6 +54,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         ArrayList<Product> products_bis  = new ArrayList<>();
         Product product_num = new Product("brand","2",2.0,3.0,1,true,"hello", "cat",2,11);
         products_bis.add(product_num);
+
         /* NEW CODE BELOW
 
         String query = "SELECT * FROM products;";
@@ -91,7 +94,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         catch (Exception e) {
                 System.out.println("Something went wrong");
         }
-         END OF NEW CODE */
+        END OF NEW CODE */
 
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter(); // is this needed?
@@ -111,7 +114,6 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                 //resp.setContentType("text/html");
                 //PrintWriter out4=resp.getWriter();
                 //out4.println(products_bis.get(4).getAmount());
-
         }
         else
         {
