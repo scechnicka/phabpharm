@@ -54,6 +54,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         // Encrypt password so that it can be compared with encrypted passwords in the DB
         password=encryption(password);
 
+
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 req.getRequestDispatcher("Desktop.jsp").include(req, resp);
