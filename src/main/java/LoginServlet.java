@@ -49,7 +49,10 @@ public class LoginServlet extends HttpServlet {
 public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
         IOException {
 
-        /* NEW CODE BELOW */
+        ArrayList<Product> products_bis  = new ArrayList<>();
+        Product product_num = new Product("brand","2",2.0,3.0,1,true,"hello", "cat",2,11);
+        products_bis.add(product_num);
+        /* NEW CODE BELOW
 
         String query = "SELECT * FROM products;";
 
@@ -76,10 +79,10 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
                         int id = rset.getInt(9);
                         int currentstock = rset.getInt(10);
 
-                        Product product_bis = new Product(brand, amount, sprice, pprice, fullstock, limitation, description, category, id, currentstock);
+                        Product product_num = new Product(brand, amount, sprice, pprice, fullstock, limitation, description, category, id, currentstock);
 
                         // Add one of the products (represented by an ArrayList) to the bigger collection of all products
-                        products_bis.add(product_bis);
+                        products_bis.add(product_num);
                 }
 
                 // here need to attach information as attribute to request - only if certain parameter
@@ -88,7 +91,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         catch (Exception e) {
                 System.out.println("Something went wrong");
         }
-        /* END OF NEW CODE */
+         END OF NEW CODE */
 
         resp.setContentType("text/html");
         PrintWriter out=resp.getWriter(); // is this needed?
@@ -104,10 +107,10 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))
         {
                 req.setAttribute("product_list",products_bis);
-                //req.getRequestDispatcher("Desktop.jsp").include(req, resp);
-                resp.setContentType("text/html");
-                PrintWriter out4=resp.getWriter();
-                out4.println(products_bis.get(4).getAmount());
+                req.getRequestDispatcher("Desktop.jsp").include(req, resp);
+                //resp.setContentType("text/html");
+                //PrintWriter out4=resp.getWriter();
+                //out4.println(products_bis.get(4).getAmount());
 
         }
         else
