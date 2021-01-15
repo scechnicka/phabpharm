@@ -11,9 +11,7 @@ import java.io.IOException;
 public class MyServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
-            IOException {
-
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("login.jsp").include(req, resp);
     }
 }

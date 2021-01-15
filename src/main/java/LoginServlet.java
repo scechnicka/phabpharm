@@ -45,9 +45,13 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Serv
         IOException {
 
         resp.setContentType("text/html");
-        PrintWriter out=resp.getWriter();
+        PrintWriter out=resp.getWriter(); // is this needed?
+
+        // Get parameters that correspond to the client name and password
         String name=req.getParameter("uname");
         String password=req.getParameter("psw");
+
+        // Encrypt password so that it can be compared with encrypted passwords in the DB
         password=encryption(password);
 
         if ((cdb.lastName.contains(name)) && (cdb.password.contains(password)))

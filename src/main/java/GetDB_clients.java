@@ -12,6 +12,8 @@ import java.util.ArrayList;
 // store the info into arrays
 // make functions that return the arrays of info when called in other classes
 
+/* This class would have been replaced by something more appropriate to directly connect to the DB and not perform another GET request */
+
 public class GetDB_clients {
     //ArrayList of ArrayList that stores all info from the DB
     ArrayList<ArrayList> AllClients = new ArrayList<ArrayList>();
